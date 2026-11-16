@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mahatma Gandhi University</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: dark;
+  --orange:#2f80ff; --red:#0b3a9e; --deep:#021a4a; --black:#030816;
+  --text:#fff; --muted:rgba(255,255,255,.72);
+  --glass:rgba(255,255,255,.12); --glass-b:rgba(255,255,255,.2);
+  --r:28px;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:Inter,system-ui,sans-serif;color:var(--text);background:var(--black);line-height:1.55;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:Anton,Impact,sans-serif;font-weight:400;letter-spacing:.01em;text-transform:uppercase}
+.bg{position:fixed;inset:0;z-index:-1;background:
+  radial-gradient(1100px 700px at 50% 100%,rgba(30,110,255,.55),transparent 65%),
+  linear-gradient(180deg,#030816 0%,#02163f 45%,#0a3a8f 100%)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+section{padding:80px 0}
+.glass{background:var(--glass);border:1px solid var(--glass-b);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:var(--r)}
+.pill{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#3b8bff,#1553c9);border-radius:99px;padding:8px 18px;font-size:.85rem;font-weight:600;box-shadow:0 6px 22px rgba(30,100,255,.5)}
+.dot{width:8px;height:8px;border-radius:50%;background:#fff;animation:pulse 1.2s infinite}
+@keyframes pulse{50%{opacity:.25}}
+.sec-title{font-size:clamp(2rem,5vw,3.2rem);margin-bottom:34px}
+
+/* nav */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;padding:14px 0}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:10px 12px 10px 22px;border-radius:99px}
+.brand{font-family:Anton;font-size:1.25rem;letter-spacing:.04em}
+.brand{display:flex;flex-wrap:wrap;align-items:center;gap:10px}.brand small{flex-basis:100%;margin:-6px 0 0 38px!important}
+.logo{width:120px;filter:drop-shadow(0 0 22px rgba(120,170,255,.6));margin:0 auto 14px;display:block}.logo.sm{width:28px;margin:0;filter:none}
+.brand small{display:block;font-family:Inter;font-size:.62rem;letter-spacing:.12em;color:var(--muted);margin-top:-3px}
+nav ul{display:flex;gap:4px;list-style:none}
+nav a{padding:8px 13px;border-radius:99px;font-size:.88rem;color:var(--muted);transition:.25s}
+nav a:hover{background:var(--glass-b);color:#fff}
+.apply{background:#fff;color:var(--red);padding:10px 20px;border-radius:99px;font-weight:600;font-size:.9rem}
+.burger{display:none;background:none;border:0;color:#fff;font-size:1.6rem;cursor:pointer}
+@media(max-width:900px){
+  nav ul{position:absolute;top:76px;left:22px;right:22px;flex-direction:column;background:rgba(3,12,40,.96);border-radius:24px;padding:14px;display:none}
+  nav ul.open{display:flex}
+  .burger{display:block}.apply{display:none}
+}
+
+/* hero */
+.hero{padding:50px 0 70px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(3rem,9vw,6.4rem);line-height:.95;margin:18px 0}
+.hero p{color:var(--muted);max-width:520px;font-size:1.05rem}
+.cta{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.btn{padding:14px 26px;border-radius:99px;font-weight:600;border:0;cursor:pointer;font-size:.95rem;font-family:inherit;transition:transform .25s}
+.btn:hover{transform:translateY(-3px)}
+.btn.w{background:#fff;color:var(--red)}
+.btn.g{background:var(--glass);border:1px solid var(--glass-b);color:#fff}
+.card-hero{padding:26px;position:relative;overflow:hidden}
+.card-hero .live{position:absolute;top:-1px;left:50%;transform:translateX(-50%)}
+.naac{text-align:center;padding:30px 10px 10px}
+.naac b{font-family:Anton;font-size:5.5rem;line-height:1;display:block}
+.naac span{color:var(--muted);letter-spacing:.14em;font-size:.8rem;text-transform:uppercase}
+.mini{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px;text-align:center;font-size:.8rem;color:var(--muted)}
+.mini strong{display:block;color:#fff;font-size:1.15rem}
+@media(max-width:860px){.hero{grid-template-columns:1fr}}
+
+/* ticker */
+.ticker{overflow:hidden;white-space:nowrap;padding:14px 0;border-radius:99px;display:flex;align-items:center}
+.ticker .tag{flex:none;margin:0 14px}
+.track{display:inline-flex;gap:60px;will-change:transform}
+.track a{font-size:.9rem;color:var(--muted)}
+.track a:hover{color:#fff}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stat{padding:30px 16px;text-align:center}
+.stat b{font-family:Anton;font-size:clamp(2.6rem,6vw,4rem);display:block;line-height:1}
+.stat span{color:var(--muted);font-size:.9rem}
+@media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+/* quick actions */
+.actions{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.act{padding:28px 22px;transition:.3s;display:block}
+.act:hover{background:linear-gradient(135deg,#3b8bff,#1553c9);transform:translateY(-6px)}
+.act i{font-style:normal;font-size:2rem;display:block;margin-bottom:34px}
+.act h3{font-size:1.5rem}
+@media(max-width:860px){.actions{grid-template-columns:repeat(2,1fr)}}
+
+/* cards */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.news{padding:28px;display:flex;flex-direction:column;gap:14px;transition:.3s}
+.news:hover{transform:translateY(-6px);background:rgba(255,255,255,.18)}
+.news h3{font-size:1.35rem;line-height:1.15}
+.news p{color:var(--muted);font-size:.92rem;flex:1}
+.more{font-weight:600;font-size:.88rem}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.hl{padding:30px;background:linear-gradient(160deg,rgba(255,255,255,.18),rgba(0,0,0,.35))}
+.hl .pill{margin-bottom:16px}
+@media(max-width:860px){.grid3,.split{grid-template-columns:1fr}}
+
+/* announcements */
+.list a{display:flex;justify-content:space-between;gap:16px;padding:20px 26px;border-bottom:1px solid var(--glass-b);transition:.25s}
+.list a:last-child{border:0}
+.list a:hover{background:var(--glass);padding-left:34px}
+.list span:last-child{opacity:.6}
+
+/* links */
+.links{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.links a{padding:16px 18px;border-radius:18px;font-size:.9rem;background:var(--glass);border:1px solid var(--glass-b);transition:.25s}
+.links a:hover{background:#fff;color:var(--red)}
+@media(max-width:860px){.links{grid-template-columns:repeat(2,1fr)}}
+
+footer{padding:50px 0 40px;text-align:center;color:var(--muted);font-size:.88rem;background:linear-gradient(180deg,transparent,#000)}
+footer .foot{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;margin-bottom:18px}
+footer .foot a:hover{color:#fff}
+
+/* modal */
+.modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(0,0,0,.65);backdrop-filter:blur(6px)}
+.modal.show{display:flex}
+.box{width:100%;max-width:420px;padding:36px 30px;position:relative;background:linear-gradient(160deg,#1a63d6,#0b3a9e 55%,#021a4a);border-radius:32px;border:1px solid var(--glass-b)}
+.box h2{font-size:2.2rem;line-height:1;margin-bottom:8px}
+.box p{color:var(--muted);font-size:.92rem;margin-bottom:22px}
+.x{position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;border:0;background:var(--glass-b);color:#fff;font-size:1.1rem;cursor:pointer}
+.box label{display:block;font-size:.8rem;margin:14px 0 6px;color:var(--muted)}
+.box input{width:100%;padding:14px 18px;border-radius:99px;border:1px solid var(--glass-b);background:rgba(0,0,0,.28);color:#fff;font:inherit;outline:0}
+.box input:focus{border-color:#fff}
+.box input::placeholder{color:rgba(255,255,255,.45)}
+.err{color:#cfe1ff;font-size:.78rem;min-height:1em;margin-top:5px;padding-left:10px}
+.box .btn{width:100%;margin-top:18px}
+.ok{text-align:center;display:none;padding:20px 0}
+.ok b{font-family:Anton;font-size:2rem;display:block;margin-bottom:8px;text-transform:uppercase}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+
+<header>
+  <div class="wrap">
+    <div class="nav glass">
+      <a href="#top" class="brand"><svg class="logo sm" viewBox="0 0 460 390" aria-hidden="true"><g fill="#fff"><path d="M112 75C115 40 135 0 170 2L320 15C400 25 455 90 455 160C455 230 425 330 415 378C410 395 395 382 375 380L330 380C325 375 335 350 350 320C370 255 395 205 380 160C365 100 330 90 300 85L112 75Z"/><path d="M63 205C70 175 85 135 140 128L275 125C320 130 335 170 325 215C310 270 255 340 215 378C205 388 190 385 182 375L255 245C270 215 260 195 240 195L75 212Z"/><path d="M5 360C10 335 40 310 90 285L195 240C205 238 200 250 195 260L130 335C110 360 85 380 60 380C20 385 0 385 5 360Z"/></g></svg>MGU<small>MAHATMA GANDHI UNIVERSITY</small></a>
+      <nav>
+        <ul id="menu">
+          <li><a href="#about">About</a></li>
+          <li><a href="#academics">Academics</a></li>
+          <li><a href="#services">Admissions</a></li>
+          <li><a href="#news">Research</a></li>
+          <li><a href="#news">News</a></li>
+          <li><a href="#announce">Announcements</a></li>
+          <li><a href="#links">Info Corner</a></li>
+        </ul>
+      </nav>
+      <a class="apply" href="https://cap.mgu.ac.in/executive/">Click to apply</a>
+      <button class="burger" id="burger" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+    <div class="hero" id="about">
+      <div>
+        <span class="pill hero-a"><span class="dot"></span> Re-accredited by NAAC with A++ Grade</span>
+        <h1 class="hero-a">Mahatma<br>Gandhi<br>University</h1>
+        <p class="hero-a">Priyadarsini Hills, Kottayam, Kerala. 31 academic schools, inter-university centres and 260+ affiliated institutions shaping learners and researchers.</p>
+        <div class="cta hero-a">
+          <a class="btn w" href="https://admission.mgu.ac.in/">Admissions</a>
+          <a class="btn g" href="https://www.mgu.ac.in/virtual-tour/">360° Virtual Tour</a>
+          <a class="btn g" href="https://www.mgu.ac.in/about/contact-us/">Contact Us</a>
+        </div>
+      </div>
+      <div class="card-hero glass hero-card">
+        <span class="pill live"><span class="dot"></span> NAAC</span>
+        <div class="naac"><svg class="logo" viewBox="0 0 460 390" aria-hidden="true"><g fill="#fff"><path d="M112 75C115 40 135 0 170 2L320 15C400 25 455 90 455 160C455 230 425 330 415 378C410 395 395 382 375 380L330 380C325 375 335 350 350 320C370 255 395 205 380 160C365 100 330 90 300 85L112 75Z"/><path d="M63 205C70 175 85 135 140 128L275 125C320 130 335 170 325 215C310 270 255 340 215 378C205 388 190 385 182 375L255 245C270 215 260 195 240 195L75 212Z"/><path d="M5 360C10 335 40 310 90 285L195 240C205 238 200 250 195 260L130 335C110 360 85 380 60 380C20 385 0 385 5 360Z"/></g></svg><b>A++</b><span>Re-accredited Grade</span></div>
+        <div class="mini">
+          <div><strong>31</strong>Schools</div>
+          <div><strong>14</strong>Centres</div>
+          <div><strong>260+</strong>Colleges</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ticker glass reveal">
+      <span class="pill tag"><span class="dot"></span> Flash News</span>
+      <div class="track" id="track">
+        <a href="https://www.mgu.ac.in/uploads/2026/11/Re-Notification-2-Applications-Invited-Course-MentorOnline-MBA-on-contract-at-CDO.pdf">Re-notification 2: Applications invited – Course Mentor (Online MBA) on contract at CDOE</a>
+        <a href="https://www.mgu.ac.in/uploads/2026/11/NIPST-Botany-Notification.pdf">Assistant Professor on contract at NIPST, Botany</a>
+        <a href="https://www.mgu.ac.in/uploads/2026/11/Chemistry-Renotification-1.pdf">Re-notification 1: Assistant Professor on contract at IIRBS, Chemistry</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="academics"><div class="wrap">
+    <div class="stats">
+      <div class="stat glass reveal"><b data-n="31">0</b><span>Academic Schools</span></div>
+      <div class="stat glass reveal"><b data-n="7">0</b><span>Inter University Centres</span></div>
+      <div class="stat glass reveal"><b data-n="7">0</b><span>Inter School Centres</span></div>
+      <div class="stat glass reveal"><b data-n="260" data-s="+">0</b><span>Affiliated Institutions</span></div>
+    </div>
+  </div></section>
+
+  <section id="services" style="padding-top:0"><div class="wrap">
+    <h2 class="sec-title reveal">Quick access</h2>
+    <div class="actions">
+      <a class="act glass reveal" href="https://admission.mgu.ac.in/"><i>🎓</i><h3>Admissions</h3></a>
+      <a class="act glass reveal" href="https://assist.mgu.ac.in/onlineservices/"><i>💻</i><h3>Online Services</h3></a>
+      <a class="act glass reveal" href="https://www.mgu.ac.in/exam-category/exam-notifications/"><i>📝</i><h3>Examinations</h3></a>
+      <a class="act glass reveal" href="https://www.mgu.ac.in/examinations/results/"><i>📊</i><h3>Results</h3></a>
+    </div>
+  </div></section>
+
+  <section id="news" style="padding-top:0"><div class="wrap">
+    <h2 class="sec-title reveal">News</h2>
+    <div class="grid3">
+      <a class="news glass reveal" href="https://www.mgu.ac.in/anrf-pair-project-heads-visit-mgu-for-review/"><span class="pill" style="align-self:flex-start">News</span><h3>ANRF-PAIR project heads visit MGU for review</h3><p>MGU hosted representatives of the University of Hyderabad, the hub institution of the Anusandhan National Research Foundation.</p><span class="more">Read more →</span></a>
+      <a class="news glass reveal" href="https://www.mgu.ac.in/mental-health-exhibition-at-mahatma-gandhi-university/"><span class="pill" style="align-self:flex-start">News</span><h3>Mental Health Exhibition at MGU</h3><p>Lehar, a two-day exhibition by the School of Behavioral Sciences, began as part of World Mental Health Day observances.</p><span class="more">Read more →</span></a>
+      <a class="news glass reveal" href="https://www.mgu.ac.in/free-medical-camp-and-awareness-programme-in-puthuppally/"><span class="pill" style="align-self:flex-start">News</span><h3>Free medical camp in Puthuppally</h3><p>An awareness programme on metabolic disorders and neurological diseases was organised by IUCBR &amp; Super Speciality Hospital.</p><span class="more">Read more →</span></a>
+    </div>
+
+    <h2 class="sec-title reveal" style="margin-top:70px">Latest</h2>
+    <div class="split">
+      <a class="news glass reveal" href="https://www.mgu.ac.in/four-year-undergraduate-programme-review-committee-visits-mahatma-gandhi-university/"><h3>Four-Year Undergraduate Programme: Review Committee visits MGU</h3><p>The committee, constituted by the Kerala State Higher Education Council, reviewed the programme at the university.</p><span class="more">Read more →</span></a>
+      <a class="news glass reveal" href="https://www.mgu.ac.in/three-mgu-scholars-receive-travel-grants-to-present-parkinsons-disease-research-at-neuroscience-2026/"><h3>Three scholars receive travel grants for Neuroscience 2026</h3><p>PhD scholars from IUCBR &amp; SSH will present Parkinson’s Disease research.</p><span class="more">Read more →</span></a>
+    </div>
+
+    <h2 class="sec-title reveal" style="margin-top:70px">Highlights</h2>
+    <div class="split">
+      <a class="hl glass reveal" href="https://www.mgu.ac.in/indu-c-v-from-mahatma-gandhi-university-wins-state-award/"><span class="pill">🏆 State Award</span><h3 style="font-size:1.6rem;margin-bottom:10px">Indu C. V. wins state award</h3><p style="color:var(--muted)">Assistant Section Officer Indu C. V. won the Bharana Bhasha Sevana Puraskaram for promoting Malayalam as official language, placing second in Group C.</p></a>
+      <a class="hl glass reveal" href="https://www.mgu.ac.in/mgu-student-receives-queen-elizabeth-ii-diamond-jubilee-scholarship/"><span class="pill">🎓 Scholarship</span><h3 style="font-size:1.6rem;margin-bottom:10px">Queen Elizabeth II Diamond Jubilee Scholarship</h3><p style="color:var(--muted)">Reshma C. S., M.Tech Energy Science and Technology, has been awarded the QES by the Government of Canada.</p></a>
+    </div>
+  </div></section>
+
+  <section id="announce" style="padding-top:0"><div class="wrap">
+    <h2 class="sec-title reveal">Announcements</h2>
+    <div class="list glass reveal">
+      <a href="https://www.mgu.ac.in/orders-notifications/5931-ada7-1-2026-ad-a-7-18/"><span>Graduate School – Assistant Professors on contract (History and more)</span><span>→</span></a>
+      <a href="https://www.mgu.ac.in/orders-notifications/92086-ad-a4-3-2026-ad-a-4/"><span>Applications invited for the post of Senior System Analyst</span><span>→</span></a>
+      <a href="https://www.mgu.ac.in/orders-notifications/62239-ad-a5-3-2022-ad-a-5/"><span>Walk-in interview: Course Coordinator (on contract)</span><span>→</span></a>
+      <a href="https://www.mgu.ac.in/orders-notifications/govt-of-kerala-disha-higher-studies-expo-2026/"><span>DISHA Higher Studies Expo 2026</span><span>→</span></a>
+      <a href="https://www.mgu.ac.in/orders-notifications/98849-ada7-1-2025-ad-a-7-5/"><span>CDOE – Temporary engagement of Course Mentor (Online BA)</span><span>→</span></a>
+      <a href="https://www.mgu.ac.in/orders-notifications/coe-kisti-mgu-10-11-2026/"><span>Project Associate (1 post) under the project “Design…”</span><span>→</span></a>
+    </div>
+    <p style="margin-top:18px;text-align:center"><a class="btn g" style="display:inline-block" href="https://www.mgu.ac.in/orders-notifications-category/announcements/">View all</a></p>
+  </div></section>
+
+  <section id="links" style="padding-top:0"><div class="wrap">
+    <h2 class="sec-title reveal">Quick links</h2>
+    <div class="links">
+      <a href="https://www.mgu.ac.in/about/reports/">Reports</a>
+      <a href="https://www.mgu.ac.in/about/disclosure/">Public Self Disclosure</a>
+      <a href="https://dsw.mgu.ac.in/">Students’ Welfare</a>
+      <a href="https://www.mgu.ac.in/infodesk/minutes/">Minutes of Meetings</a>
+      <a href="https://www.mgu.ac.in/blog/">Story Archives</a>
+      <a href="https://www.mgu.ac.in/placement-and-training-cell/">Placement &amp; Training</a>
+      <a href="https://mgugreenlab.com/">MGU Green Lab</a>
+      <a href="https://www.mgu.ac.in/mooc-on-organic-farming/">MOOC on Organic Farming</a>
+      <a href="https://www.iqacmgu.org/">Faculty Portal</a>
+      <a href="https://employee.mgu.ac.in/">Employees Portal</a>
+      <a href="https://employee.mgu.ac.in/Pensioner/">Pensioners Portal</a>
+      <a href="http://projects.mgu.ac.in/">College Authorities</a>
+      <a href="https://www.mgu.ac.in/infodesk/calendar/">Calendar</a>
+      <a href="https://www.mgu.ac.in/administration/other-offices/university-level-anti-ragging-cell/">Anti-Ragging Committee</a>
+      <a href="https://www.mgu.ac.in/infodesk/scholarships-financial-assistance/">Scholarships</a>
+      <a href="http://ums.mgu.ac.in/">Faculty Registration</a>
+    </div>
+  </div></section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <a href="https://www.mgu.ac.in/terms-of-use/">Terms of Use</a>
+      <a href="https://www.mgu.ac.in/infodesk/rti/">RTI</a>
+      <a href="https://www.mgu.ac.in/model-question-papers/">Model Question Papers</a>
+      <a href="https://www.mgu.ac.in/faq/">FAQ</a>
+      <a href="https://nad.digitallocker.gov.in/">National Academic Depository</a>
+      <a href="https://www.mgu.ac.in/orders-notifications-category/tenders/">Quotations &amp; Tenders</a>
+      <a href="https://www.mgu.ac.in/about/contact-us/">Contact Us</a>
+    </div>
+    © 2026 Mahatma Gandhi University, Priyadarsini Hills, Kottayam, Kerala, India – 686560
+  </div>
+</footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mt">
+  <div class="box">
+    <button class="x" id="close" aria-label="Close">✕</button>
+    <div id="formWrap">
+      <h2 id="mt">Need admission help?</h2>
+      <p>Leave your name and phone number and our team will call you back.</p>
+      <form id="form" novalidate>
+        <label for="name">Name</label>
+        <input id="name" type="text" placeholder="Your full name" autocomplete="name">
+        <div class="err" id="e1"></div>
+        <label for="phone">Phone</label>
+        <input id="phone" type="tel" inputmode="numeric" placeholder="10-digit mobile number" autocomplete="tel">
+        <div class="err" id="e2"></div>
+        <button class="btn w" type="submit">Request a call back</button>
+      </form>
+    </div>
+    <div class="ok" id="ok"><b>Thank you!</b><p>We have received your details and will contact you soon.</p></div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+// intro
+const tl = gsap.timeline({defaults:{ease:"power3.out"}});
+tl.from(".nav",{y:-60,opacity:0,duration:.8})
+  .from(".hero-a",{y:50,opacity:0,duration:.9,stagger:.12},"-=.4")
+  .from(".hero-card",{scale:.85,opacity:0,rotate:3,duration:1,ease:"back.out(1.6)"},"-=.8");
+gsap.to(".hero-card",{y:-14,duration:2.6,repeat:-1,yoyo:true,ease:"sine.inOut"});
+
+// scroll reveals
+gsap.utils.toArray(".reveal").forEach((el,i)=>{
+  gsap.from(el,{y:60,opacity:0,duration:.9,ease:"power3.out",
+    scrollTrigger:{trigger:el,start:"top 88%",toggleActions:"play none none none"}});
+});
+
+// counters
+document.querySelectorAll("[data-n]").forEach(el=>{
+  const o={v:0}, end=+el.dataset.n, s=el.dataset.s||"";
+  ScrollTrigger.create({trigger:el,start:"top 90%",once:true,onEnter:()=>
+    gsap.to(o,{v:end,duration:1.6,ease:"power2.out",onUpdate:()=>el.textContent=Math.round(o.v)+s})});
+});
+
+// ticker
+const track=document.getElementById("track");
+track.innerHTML+=track.innerHTML;
+const half=track.scrollWidth/2+30;
+const mq=gsap.to(track,{x:-half,duration:35,ease:"none",repeat:-1});
+track.addEventListener("mouseenter",()=>mq.pause());
+track.addEventListener("mouseleave",()=>mq.play());
+
+// parallax background
+gsap.to(".bg",{backgroundPosition:"0 -120px",scrollTrigger:{scrub:true,start:0,end:"max"}});
+
+// mobile menu
+const menu=document.getElementById("menu");
+document.getElementById("burger").onclick=()=>menu.classList.toggle("open");
+menu.querySelectorAll("a").forEach(a=>a.onclick=()=>menu.classList.remove("open"));
+
+// popup after 30 seconds
+const modal=document.getElementById("modal"), box=modal.querySelector(".box");
+let shown=false;
+function openModal(){
+  if(shown) return; shown=true;
+  modal.classList.add("show");
+  gsap.fromTo(modal,{opacity:0},{opacity:1,duration:.3});
+  gsap.fromTo(box,{y:60,scale:.9,opacity:0},{y:0,scale:1,opacity:1,duration:.6,ease:"back.out(1.5)"});
+  document.getElementById("name").focus();
+}
+function closeModal(){
+  gsap.to(box,{y:40,opacity:0,scale:.95,duration:.25});
+  gsap.to(modal,{opacity:0,duration:.3,onComplete:()=>modal.classList.remove("show")});
+}
+setTimeout(openModal,30000);
+document.getElementById("close").onclick=closeModal;
+modal.addEventListener("click",e=>{if(e.target===modal)closeModal()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&modal.classList.contains("show"))closeModal()});
+
+// form
+document.getElementById("form").addEventListener("submit",e=>{
+  e.preventDefault();
+  const n=document.getElementById("name").value.trim();
+  const p=document.getElementById("phone").value.replace(/[\s-]/g,"");
+  const e1=document.getElementById("e1"), e2=document.getElementById("e2");
+  e1.textContent = n.length<2 ? "Please enter your name." : "";
+  e2.textContent = /^(\+91)?[6-9]\d{9}$/.test(p) ? "" : "Enter a valid 10-digit mobile number.";
+  if(e1.textContent||e2.textContent) return;
+  // TODO: send {name:n, phone:p} to your backend here, e.g. fetch("/api/lead",{method:"POST",...})
+  console.log("Lead:",{name:n,phone:p});
+  document.getElementById("formWrap").style.display="none";
+  const ok=document.getElementById("ok"); ok.style.display="block";
+  gsap.from(ok,{y:20,opacity:0,duration:.5});
+  setTimeout(closeModal,2500);
+});
+</script>
+</body>
+</html>
